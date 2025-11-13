@@ -1,1 +1,287 @@
-# Data-size-conveter5
+# Data-size-conveter
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Data Size Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 14px;
+      width: 370px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    select { cursor: pointer; }
+    button {
+      background: #00bcd4;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover { background: #0097a7; }
+
+    #result {
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      word-break: break-word;
+    }
+
+    small { color: #aaa; }
+
+    /* Dropdown container with middle arrow */
+    .select-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .arrow {
+      font-size: 1.5rem;
+      color: #00bcd4;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>💾 Advanced Data Size Converter</h1>
+    <p>किसी भी यूनिट को दूसरी यूनिट में बदलें:</p>
+
+    <input type="number" id="value" placeholder="Enter the Digits (Like 1024)">
+    
+    <div class="select-container">
+      <select id="fromUnit">
+        <option value="b">Bytes (B)</option>
+        <option value="kb">Kilobytes (KB)</option>
+        <option value="mb">Megabytes (MB)</option>
+        <option value="gb">Gigabytes (GB)</option>
+        <option value="tb">Terabytes (TB)</option>
+        <option value="pb">Petabytes (PB)</option>
+        <option value="eb">Exabytes (EB)</option>
+        <option value="zb">Zettabytes (ZB)</option>
+        <option value="yb">Yottabytes (YB)</option>
+      </select>
+
+      <span class="arrow">⇄</span>
+
+      <select id="toUnit">
+        <option value="b">Bytes (B)</option>
+        <option value="kb">Kilobytes (KB)</option>
+        <option value="mb">Megabytes (MB)</option>
+        <option value="gb">Gigabytes (GB)</option>
+        <option value="tb">Terabytes (TB)</option>
+        <option value="pb">Petabytes (PB)</option>
+        <option value="eb">Exabytes (EB)</option>
+        <option value="zb">Zettabytes (ZB)</option>
+        <option value="yb">Yottabytes (YB)</option>
+      </select>
+    </div>
+
+    <button onclick="convert()">Convert करें</button>
+
+    <div id="result"></div>
+    <small>1 KB = 1024 Bytes • 1 MB = 1024 KB • </small>
+  </div>
+
+  <script>
+    function convert() {
+      const value = parseFloat(document.getElementById("value").value);
+      const fromUnit = document.getElementById("fromUnit").value;
+      const toUnit = document.getElementById("toUnit").value;
+      const result = document.getElementById("result");
+
+      if (isNaN(value)) {
+        result.innerHTML = "⚠️ कृपया कोई मान दर्ज करें!";
+        return;
+      }
+
+      const units = ["b", "kb", "mb", "gb", "tb", "pb", "eb", "zb", "yb"];
+      const fromIndex = units.indexOf(fromUnit);
+      const toIndex = units.indexOf(toUnit);
+
+      if (fromIndex === -1 || toIndex === -1) {
+        result.innerHTML = "❌ Invalid unit selection!";
+        return;
+      }
+
+      const diff = fromIndex - toIndex;
+      const convertedValue = value * Math.pow(1024, diff);
+
+      result.innerHTML = `
+        <strong>${value}</strong> ${fromUnit.toUpperCase()} =
+        <strong>${convertedValue.toPrecision(10)}</strong> ${toUnit.toUpperCase()}
+      `;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
